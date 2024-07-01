@@ -1,5 +1,5 @@
 import React from "react";
-import ErrorPage from "./Components/ErrorPage";"./Components/ErrorPage";
+import ErrorPage from "./Components/ErrorPage";
 import "./App";
 import App from "./App";
 
