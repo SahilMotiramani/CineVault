@@ -40,7 +40,7 @@ const TopTv = () => {
       (
       <Slider {...settings}>
         {topTv.map(tv => (
-          <Link className={styles.link} to={`/${tv.id}`} key={tv.id}>
+          <Link className={styles.link} to={`/tv/${tv.id}`} key={tv.id}>
             <div className={styles.card}>
               <img
                 src={`https://image.tmdb.org/t/p/original${tv.poster_path}`}

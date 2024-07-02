@@ -1,7 +1,8 @@
 import React from "react";
 import ErrorPage from "./Components/ErrorPage";
-import "./App";
 import App from "./App";
+import SearchPage from "./Components/SearchPage";
+import Info from "./Components/Info";
 
 const Routes = [
   {
@@ -9,21 +10,16 @@ const Routes = [
     element: <App></App>,
     errorElement: <ErrorPage></ErrorPage>,
   },
-  // {
-  //   path: "/movies",
-  //   element: <Movie></Movie>,
-  //   errorElement: <ErrorPage></ErrorPage>,
-  // },
-  // {
-  //   path: "/tv",
-  //   element: <Tv></Tv>,
-  //   errorElement: <ErrorPage></ErrorPage>,
-  // },
-  // {
-  //   path: "/:id",
-  //   element: <Info></Info>,
-  //   errorElement: <Error  Page></ErrorPage>,
-  // },
+  {
+    path: "/search/:query",
+    element: <SearchPage></SearchPage>,
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/:type/:id",
+    element: <Info></Info>,
+    errorElement: <ErrorPage></ErrorPage>,
+  },
 ];
 
 export default Routes;

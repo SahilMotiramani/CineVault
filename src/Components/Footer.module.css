@@ -1,0 +1,24 @@
+.footer {
+    background-color: rgb(40, 40, 40);
+    margin: 0;
+    padding: 0;
+    height: 15rem;
+    color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.footer div {
+    margin-bottom: 5px; 
+    width: 80%; 
+    text-align: center;
+  }
+
+.footer a {
+    text-decoration: none;
+    color: grey;
+    font-weight: 600;
+}

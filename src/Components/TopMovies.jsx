@@ -24,7 +24,6 @@ const TopMovies = () => {
         setTopMovies(data.results);
         setIsLoading(false);
        })
-      .catch(error => console.error('Error fetching trending tv:', error));
   }, []);
 
   const settings = {
@@ -40,7 +39,7 @@ const TopMovies = () => {
       (
       <Slider {...settings}>
         {topMovies.map(movie => (
-          <Link className={styles.link} to={`/${movie.id}`} key={movie.id}>
+          <Link className={styles.link} to={`/movie/${movie.id}`} key={movie.id}>
             <div className={styles.card}>
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}

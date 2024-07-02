@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const TrendingTv = () => {
   const [trendingTv, setTrendingTv] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const options = {
     method: 'GET',
@@ -19,8 +20,10 @@ const TrendingTv = () => {
   useEffect(() => {
     fetch('https://api.themoviedb.org/3/trending/tv/week?language=en-US', options)
       .then(response => response.json())
-      .then(response => setTrendingTv(response.results))
-      .catch(error => console.error('Error fetching trending tv:', error));
+      .then(data =>{
+        setTrendingTv(data.results)
+        setIsLoading(false);
+      })
   }, []);
 
   const settings = {
@@ -32,9 +35,11 @@ const TrendingTv = () => {
   return (
     <div className={styles.tremov}>
       <h2>Trending TV Shows</h2>
+      {isLoading ? (<p>Loading shows...</p> ) : 
+      (
       <Slider {...settings}>
         {trendingTv.map(tv => (
-          <Link className={styles.link} to={`/${tv.id}`} key={tv.id}>
+          <Link className={styles.link} to={`/${tv.media_type}/${tv.id}`} key={tv.id}>
             <div className={styles.card}>
               <img
                 src={`https://image.tmdb.org/t/p/original${tv.poster_path}`}
@@ -44,7 +49,7 @@ const TrendingTv = () => {
             </div>
           </Link>
         ))}
-      </Slider>
+      </Slider>)}
     </div>
   );
 };

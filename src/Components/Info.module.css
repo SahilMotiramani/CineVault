@@ -1,0 +1,64 @@
+.outerdiv {
+    position: absolute;
+    top: 70px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+  }
+
+  .backimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(50%);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent, black);
+    pointer-events: none; 
+    z-index: -1;
+  }
+
+  .poster {
+    height: 500px;
+    width: 500px;
+    margin-left: 10%;
+    object-fit: cover;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5); 
+  }
+
+.infodiv {
+    margin: 5%;
+}
+
+.typeandrate {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .genres span {
+    background-color: rgba(42, 42, 42);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }

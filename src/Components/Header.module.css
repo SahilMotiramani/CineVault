@@ -3,7 +3,9 @@ header {
     background-color: rgb(40, 40, 40);
     padding: 1rem;
     box-sizing: border-box;
+    z-index: 1;
 }
+
   
 .navLinks {
   list-style-type: none;

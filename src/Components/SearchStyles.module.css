@@ -1,0 +1,47 @@
+/* HomeStyles.module.css */
+
+.tremov {
+    margin: 2%;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around; 
+  }
+  
+  .card {
+    width: 200px; /* Fixed width for each card */
+    height: 400px;
+    margin: 10px;
+    border: 2px solid rgb(69, 69, 69);
+    background-color: rgb(69, 69, 69);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); 
+  }
+  
+  .card img {
+    width: 100%;
+    height: 80%; 
+    object-fit: cover;
+  }
+  
+  .card p {
+    padding: 10px;
+    margin: 0;
+    color: #ffffff;
+    max-height: calc(100% - 20px); 
+    text-align: center;
+  }
+  
+  .link {
+    color: inherit;
+    font-weight: 550;
+    text-decoration: none;
+  }
+
+.resultsfor {
+    margin: 1.5%;
+}
