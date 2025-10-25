@@ -1,15 +1,14 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
-import { useState,useEffect } from 'react';
 import styles from './Info.module.css'
 
 function Info() {
-
     const { id, type } = useParams();
-
     const [info, setInfo] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [isInWatchLater, setIsInWatchLater] = useState(false);
 
     const options = {
       method: 'GET',
@@ -25,8 +24,30 @@ function Info() {
         .then(data =>{
             setInfo(data);
             setIsLoading(false);
+            // Check if already in watch later
+            const watchLater = JSON.parse(localStorage.getItem('watchLater') || '[]');
+            setIsInWatchLater(watchLater.some(item => item.id === parseInt(id)));
         })
     }, [type, id]);
+
+    const toggleWatchLater = () => {
+        const watchLater = JSON.parse(localStorage.getItem('watchLater') || '[]');
+        if (isInWatchLater) {
+            const newList = watchLater.filter(item => item.id !== info.id);
+            localStorage.setItem('watchLater', JSON.stringify(newList));
+            setIsInWatchLater(false);
+        } else {
+            const itemToAdd = {
+                id: info.id,
+                title: info.title || info.name,
+                poster_path: info.poster_path,
+                type: type,
+                media_type: type // ensure we store the media type for correct routing
+            };
+            localStorage.setItem('watchLater', JSON.stringify([...watchLater, itemToAdd]));
+            setIsInWatchLater(true);
+        }
+    };
 
     return (
         <div>
@@ -42,6 +63,12 @@ function Info() {
                         <p>Rating: {info.vote_average}</p>
                         <p>Runtime: {info.runtime || info.episode_run_time} min</p>
                         <p>{type}</p>
+                        <button 
+                            onClick={toggleWatchLater}
+                            className={`${styles.watchLaterBtn} ${isInWatchLater ? styles.inWatchLater : ''}`}
+                        >
+                            {isInWatchLater ? 'Remove from Watch Later' : 'Add to Watch Later'}
+                        </button>
                     </div>
                     <h4>Overview:</h4>
                     <p> {info.overview}</p>
@@ -52,12 +79,10 @@ function Info() {
                             <span key={genre.id}>{genre.name}</span>
                     ))}
                     </div>
-
                 </div>
             </div>)}
         </div>
     );
 }
-
 
 export default Info;

@@ -3,6 +3,7 @@ import ErrorPage from "./Components/ErrorPage";
 import App from "./App";
 import SearchPage from "./Components/SearchPage";
 import Info from "./Components/Info";
+import WatchLater from "./Components/WatchLater";
 
 const Routes = [
   {
@@ -18,6 +19,11 @@ const Routes = [
   {
     path: "/:type/:id",
     element: <Info></Info>,
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/watch-later",
+    element: <WatchLater />,
     errorElement: <ErrorPage></ErrorPage>,
   },
 ];

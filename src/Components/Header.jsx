@@ -22,6 +22,7 @@ function Header() {
       <nav className={styles.header}>
         <ul className={styles.navLinks}>
           <li><Link to="/" className={`${styles.link} ${styles.logo}`}>CineVault</Link></li>
+          <li><Link to="/watch-later" className={styles.link}>Watch Later</Link></li>
           <input id={styles.searchBar} className='inputbox' type="text" placeholder='Search' value={searchValue} onChange={handleChange} onKeyDown={handleKeyPress} />
         </ul>
       </nav>

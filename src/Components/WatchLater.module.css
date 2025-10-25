@@ -1,0 +1,55 @@
+.container {
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.movieCard {
+    position: relative;
+    transition: transform 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.movieCard:hover {
+    transform: scale(1.05);
+}
+
+.movieCard img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.movieInfo {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.movieInfo h3 {
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 1em;
+}
+
+.removeButton {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.removeButton:hover {
+    background: #b2070f;
+}
